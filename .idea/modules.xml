@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/MonAgence.iml" filepath="$PROJECT_DIR$/.idea/MonAgence.iml" />
+      <module fileurl="file://$USER_HOME$/bulletjournal/.idea/bulletjournal.iml" filepath="$USER_HOME$/bulletjournal/.idea/bulletjournal.iml" />
+      <module fileurl="file://$USER_HOME$/my-bullet-journal/.idea/my-bullet-journal.iml" filepath="$USER_HOME$/my-bullet-journal/.idea/my-bullet-journal.iml" />
+    </modules>
+  </component>
+</project>
