@@ -25,6 +25,10 @@
                 </td>
                 <td>
                     <a href="{{ path("admin.property.edit", {id:property.id}) }}" class="btn btn-secondary">Editer</a>
+                    <a href="{{ path("admin.property.delete", {id:property.id}) }}" class="btn btn-danger">Supprimer</a>
+                </td>
+                <td>
+
                 </td>
             </tr>
         {% endfor %}

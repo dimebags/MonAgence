@@ -33,15 +33,27 @@ class AdminPropertyController extends AbstractController {
         $property = new Property();
         $form = $this->createForm(PropertyType::class, $property);
         $form->handleRequest($request);
-        dump("test");
         if($form->isSubmitted() && $form->isValid()) {
-            $this->em->persist();
+
+            $this->em->persist($property);
             $this->em->flush();
             return $this->redirectToRoute("admin.property.index");
         }
         return $this->render('admin/property/new.html.twig', ["property" => $property, "form"=>$form->createView()]);
 
     }
+
+    public function delete(Property $property, Request $request) {
+
+
+
+
+            $this->em->remove($property);
+            $this->em->flush();
+            return $this->redirectToRoute("admin.property.index");
+
+    }
+
 
     public function edit(Property $property, Request $request) {
 

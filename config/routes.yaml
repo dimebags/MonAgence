@@ -15,21 +15,26 @@ property.show:
         slug: '[a-z0-9\-]*'
 
 
-
-
 admin.property.index:
     path: /admin
     controller: App\Controller\admin\AdminPropertyController::index
 
 
 
+admin.property.new:
+    path: /admin/property/create
+    controller: App\Controller\admin\AdminPropertyController::new
+
+
 
 admin.property.edit:
     path: /admin/property/{id}
     controller: App\Controller\admin\AdminPropertyController::edit
+    methods: GET|POST
 
 
 
-admin.property.new:
-    path: /admin/property/create
-    controller: App\Controller\admin\AdminPropertyController::new
+admin.property.delete:
+    path: /admin/property/{id}
+    controller: App\Controller\admin\AdminPropertyController::delete
+    methods: DELETE
