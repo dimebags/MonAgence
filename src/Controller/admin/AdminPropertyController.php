@@ -37,6 +37,8 @@ class AdminPropertyController extends AbstractController {
 
             $this->em->persist($property);
             $this->em->flush();
+            $this->addFlash('success', 'Bien edité avec succès');
+
             return $this->redirectToRoute("admin.property.index");
         }
         return $this->render('admin/property/new.html.twig', ["property" => $property, "form"=>$form->createView()]);
@@ -45,11 +47,9 @@ class AdminPropertyController extends AbstractController {
 
     public function delete(Property $property, Request $request) {
 
-
-
-
             $this->em->remove($property);
             $this->em->flush();
+            $this->addFlash('success', 'Bien supprimé avec succès');
             return $this->redirectToRoute("admin.property.index");
 
     }
@@ -63,6 +63,7 @@ class AdminPropertyController extends AbstractController {
 
         if($form->isSubmitted() && $form->isValid()) {
             $this->em->flush();// no persist because update
+            $this->addFlash('success', 'Bien modifié avec succès');
             return $this->redirectToRoute("admin.property.index");
         }
        return $this->render('admin/property/edit.html.twig', ["property" => $property, "form"=>$form->createView()]);
