@@ -38,3 +38,12 @@ admin.property.delete:
     path: /admin/property/{id}
     controller: App\Controller\admin\AdminPropertyController::delete
     methods: DELETE
+
+
+login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+logout:
+    path: /logout
+
