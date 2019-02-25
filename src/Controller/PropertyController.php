@@ -6,9 +6,12 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\PropertyRepository;
+use Symfony\Component\HttpFoundation\Tests\RequestContentProxy;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 use App\Entity\Property;
+use Symfony\Component\HttpFoundation\Request;
+use Knp\Component\Pager\PaginatorInterface;
 
 class PropertyController extends AbstractController
 {
@@ -21,7 +24,7 @@ class PropertyController extends AbstractController
 
     }
 
-    public function index(): Response
+    public function index(PaginatorInterface $paginator ,Request $request): Response
     {
 
 
@@ -43,7 +46,9 @@ class PropertyController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $em->persist($property);
         $em->flush();*/
-        return $this->render("pages/property.html.twig",["current_menu"=>'properties'] );
+        $allProperties = $paginator->paginate($this->repository->findAllVisibleQuery(), $request->query->getInt('page', 1), 12);
+
+        return $this->render("pages/property.html.twig",["current_menu"=>'properties',"properties"=>$allProperties] );
     }
 
 

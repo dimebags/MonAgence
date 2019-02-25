@@ -4,7 +4,10 @@ namespace App\Repository;
 
 use App\Entity\Property;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+
+
 
 /**
  * @method Property|null find($id, $lockMode = null, $lockVersion = null)
@@ -20,16 +23,16 @@ class PropertyRepository extends ServiceEntityRepository
     }
 
 
+    /**
+     * @return Query
+     *
+     */
 
 
-
-    public function findAllVisible()
+    public function findAllVisibleQuery(): Query
     {
         return $this->findVisibleQuery('p')
-
-            ->getQuery()
-            ->getResult()
-            ;
+            ->getQuery();
     }
 
     public function findLatest()

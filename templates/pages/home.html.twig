@@ -5,7 +5,7 @@
 {% block body %}
 
 <div class="jumbotron text-center">
-    <h1>Agence Lorem ipsum</h1>
+    <h1>Agence immobilière</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, dolor eos error, fugiat harum in labore molestiae
         perspiciatis qui repudiandae rerum sed, sit tempora vero voluptate! Ducimus maiores repellat repellendus! </p>
 
@@ -14,9 +14,8 @@
 
     <h2>Les derniers biens</h2>
     <div class="row flex">
-        {{ dump(properties) }}
         {% for property in properties %}
-            <div class="col-3">
+            <div class="col-3 mt-5">
 
                 <div class="card">
 
@@ -39,6 +38,8 @@
         {% endfor %}
 
     </div>
+
+
 </div>
 
 {% endblock %}
