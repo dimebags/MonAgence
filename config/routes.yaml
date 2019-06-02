@@ -40,6 +40,31 @@ admin.property.delete:
     methods: DELETE
 
 
+admin.option.index:
+    path: /admin/option
+    controller: App\Controller\admin\AdminOptionController::index
+
+
+
+admin.option.new:
+    path: /admin/option/create
+    controller: App\Controller\admin\AdminOptionController::new
+
+
+
+admin.option.edit:
+    path: /admin/option/{id}
+    controller: App\Controller\admin\AdminOptionController::edit
+    methods: GET|POST
+
+
+
+admin.option.delete:
+    path: /admin/option/{id}
+    controller: App\Controller\admin\AdminOptionController::delete
+    methods: DELETE
+
+
 login:
     path: /login
     controller: App\Controller\SecurityController::login
